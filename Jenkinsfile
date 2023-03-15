@@ -8,9 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                withGradle {
-                  sh './gradlew build'
-                }
+                sh './gradlew build'
             }
         }
          stage('Test') {
@@ -18,11 +16,11 @@ pipeline {
                 sh 'gradle test'
             }
         }
-        stage('Build Jar') {
-            steps {
-                sh 'gradle bootJar'
-            }
-        }
+//         stage('Build Jar') {
+//             steps {
+//                 sh 'gradle bootJar'
+//             }
+//         }
 
     }
 }
