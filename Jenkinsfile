@@ -8,7 +8,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'gradle assemble'
+                withGradle {
+                  sh './gradlew build'
+                }
             }
         }
          stage('Test') {
