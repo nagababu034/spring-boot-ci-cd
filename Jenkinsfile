@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './gradlew clean'
+                sh './gradlew clean build'
             }
         }
-         stage('Test') {
-            steps {
-                sh 'gradle test'
-            }
-        }
+//          stage('Test') {
+//             steps {
+//                 sh './gradlew test'
+//             }
+//         }
 //         stage('Build Jar') {
 //             steps {
 //                 sh 'gradle bootJar'
