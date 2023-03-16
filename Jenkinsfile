@@ -11,16 +11,13 @@ pipeline {
                 sh './gradlew clean build'
             }
         }
-//          stage('Test') {
-//             steps {
-//                 sh './gradlew test'
-//             }
-//         }
-//         stage('Build Jar') {
-//             steps {
-//                 sh 'gradle bootJar'
-//             }
-//         }
 
+        stage("S3 Upload"){
+            steps{
+                withAWS(region:"us-east-1", credentials:"AWS_CREDENTIAL_ID"){
+                    s3Upload(file:"build/libs/*-SNAPSHOT.jar", bucket:"ec2-deploy-bucket")
+                }
+            }
+        }
     }
 }
