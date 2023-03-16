@@ -15,7 +15,7 @@ pipeline {
         stage("S3 Upload"){
             steps{
                 withAWS(region:"us-east-1", credentials:"AWS_CREDENTIAL_ID"){
-                    s3Upload(file:"build/libs/*-SNAPSHOT.jar", bucket:"ec2-deploy-bucket")
+                    s3Upload(file:"build/libs/spring-boot-ci-cd-0.0.1-SNAPSHOT.jar", bucket:"ec2-deploy-bucket")
                 }
             }
         }
